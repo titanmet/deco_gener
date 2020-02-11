@@ -8,15 +8,12 @@
 # print(sys.getsizeof(s))
 # print(sys.getsizeof(list(range(0,10000000000000000000000000))))
 
-def get_numbers():
-    start = 0
-    end = 10
-    step = 1
+def get_numbers(start, end, step):
     while start < end:
         yield start
         start += step
 
-gen = get_numbers()
+gen = get_numbers(0, 10, 1)
 # print(next(gen))
 # print(next(gen))
 # print(next(gen))
@@ -24,7 +21,7 @@ gen = get_numbers()
 # print(next(gen))
 print(list(gen))
 try:
-    gen = get_numbers()
+    gen = get_numbers(0, 12, 1)
     for i in gen:
         print(i)
 except StopIteration as e:
